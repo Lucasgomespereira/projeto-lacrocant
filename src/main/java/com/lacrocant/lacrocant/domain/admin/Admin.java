@@ -1,17 +1,20 @@
 package com.lacrocant.lacrocant.domain.admin;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Entity
+@Entity(name = "TB_ADMIN")
 @Data
 @AllArgsConstructor
-public class admin {
+public class Admin {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
     private String fullName;
