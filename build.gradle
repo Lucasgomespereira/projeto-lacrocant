@@ -19,14 +19,25 @@ repositories {
 }
 
 dependencies {
+	/* data-jpa */
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	/* spring-security */
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+	/* thymeleaf*/	
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	/* spring-boot-start */
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	/* lombok */
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
+	/* devtools */
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	/* postgresql */
+	runtimeOnly 'org.postgresql:postgresql'
+	/* Webjars */
+	compile group: 'org.webjars', name: 'webjars-locator-core'
+	compile 'org.webjars:AdminLTE:3.0.2'
+
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
