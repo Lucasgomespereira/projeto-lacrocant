@@ -5,17 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../../static/admin/css/login.css">
+    <link rel="stylesheet" href="/admin/css/login.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/webjars/AdminLTE/3.0.2/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/webjars/AdminLTE/3.0.2/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/webjars/AdminLTE/3.0.2/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
 <body>
-    <form action="#" th:action="@{/login}" method="GET" class="form-signin w-50 text-center m-auto mt-5">
-        <img src="../../img/logotipoamarela.png" id="imgLogoLogin" class="img-fluid" alt="Logo da Lacrocant amarela">
+    <form th:action="@{/auth/authentication}" method="POST" class="form-signin w-50 text-center m-auto mt-5">
+        <img src="/img/logotipoamarela.png" id="imgLogoLogin" class="img-fluid" alt="Logo da Lacrocant amarela">
         <h1 class="h3 font-weight-normal mt-4 text-muted">Administrador</h1>
         <input type="text" name="userName" class="form-control" placeholder="Nome de usuário" required>
         <input type="password" name="password" class="form-control mt-1" placeholder="Senha" required>
-        <input type="button" value="Login" class="btn btn-primary form-control mt-3">
+        <button type="submit" name="login" class="btn btn-primary form-control mt-3">Entrar</button>
     </form>
 </body>
+<!-- jQuery -->
+<script src="/webjars/AdminLTE/3.0.2/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/webjars/AdminLTE/3.0.2/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/webjars/AdminLTE/3.0.2/dist/js/adminlte.min.js"></script>
 
 </html>
