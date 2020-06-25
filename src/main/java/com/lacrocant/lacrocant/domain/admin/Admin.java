@@ -1,28 +1,31 @@
 package com.lacrocant.lacrocant.domain.admin;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.lacrocant.lacrocant.domain.AbstractEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NonNull;
 
-@Entity(name = "TB_ADMIN")
+@SuppressWarnings("serial")
+@Entity
 @Data
 @AllArgsConstructor
-public class Admin {
+public class Admin extends AbstractEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
-
+    @NonNull
     private String fullName;
 
+    @Column(unique = true)
     private String userName;
 
+    @JsonIgnore
     private String password;
 
+    @Column(unique = true)
     private String email;
 
     private Boolean active = true;
