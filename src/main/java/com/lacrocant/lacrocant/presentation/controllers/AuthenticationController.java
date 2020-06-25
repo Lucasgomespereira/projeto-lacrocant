@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("auth")
 public class AuthenticationController {
 
-    @Autowired
-    private AdminApplication adminApplication; //será usado quando for recuperar acesso
+    /* @Autowired
+    private AdminApplication adminApplication; */ //será usado quando for recuperar acesso
 
     @GetMapping("/login")
     public String login() {
