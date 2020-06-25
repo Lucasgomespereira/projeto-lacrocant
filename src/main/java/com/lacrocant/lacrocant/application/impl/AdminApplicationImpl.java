@@ -25,7 +25,6 @@ public class AdminApplicationImpl implements AdminApplication {
 
     @Override
     public Admin findById(String id) {
-        // TODO Auto-generated method stub
         return null;
     }
 
