@@ -2,18 +2,20 @@ package com.lacrocant.lacrocant.domain.admin;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lacrocant.lacrocant.domain.AbstractEntity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @SuppressWarnings("serial")
 @Entity
 @Data
-@AllArgsConstructor
+@NoArgsConstructor
 public class Admin extends AbstractEntity {
 
     @NonNull
@@ -29,4 +31,7 @@ public class Admin extends AbstractEntity {
     private String email;
 
     private Boolean active = true;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }
