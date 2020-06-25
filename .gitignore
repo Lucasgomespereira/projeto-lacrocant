@@ -3,7 +3,7 @@ HELP.md
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/test/**
-.bin
+bin/
 
 ### STS ###
 .apt_generated
@@ -32,4 +32,4 @@ out/
 .vscode/
 
 ### Aplication.properties ###
-.application.properties
+application.properties
