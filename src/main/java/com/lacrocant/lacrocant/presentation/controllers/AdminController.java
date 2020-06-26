@@ -1,15 +1,15 @@
 package com.lacrocant.lacrocant.presentation.controllers;
 
+import javax.validation.Valid;
+
 import com.lacrocant.lacrocant.application.AdminApplication;
 import com.lacrocant.lacrocant.domain.admin.Admin;
 import com.lacrocant.lacrocant.util.LaCrocanteException;
 
-//import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +30,7 @@ public class AdminController {
     }
 
     @PostMapping("/save")
-    public String saveAdmin( @ModelAttribute("admin") Admin admin, RedirectAttributes att) {
+    public String saveAdmin( @Valid @ModelAttribute("admin") Admin admin, RedirectAttributes att) {
         try {
             adminApplication.save(admin);
             att.addFlashAttribute("s_message",
@@ -63,7 +63,7 @@ public class AdminController {
     }
 
     @PostMapping("/update")
-    public String update(Admin admin, RedirectAttributes att) {
+    public String update(@Valid Admin admin, RedirectAttributes att) {
         try {
             adminApplication.update(admin);
             att.addFlashAttribute("s_message",
