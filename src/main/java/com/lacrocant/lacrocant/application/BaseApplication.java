@@ -11,7 +11,7 @@ public interface BaseApplication<E extends AbstractEntity, I>{
 
     E update(E entity) throws LaCrocanteException;
 
-    E findById(I id) throws LaCrocanteException;
+    E findById(I id);
 
     List<E> list();
     

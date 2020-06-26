@@ -31,8 +31,8 @@ public class AdminApplicationImpl implements AdminApplication {
     }
 
     @Override
-    public Admin findById(final String id) {
-        return null;
+    public Admin findById(String id) {
+        return adminRep.findById(id).get();
     }
 
     @Override

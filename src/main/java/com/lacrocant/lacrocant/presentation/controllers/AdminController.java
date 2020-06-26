@@ -54,7 +54,7 @@ public class AdminController {
     }
 
     @GetMapping("/{id}")
-    public String show(@PathVariable("id") String id, ModelMap model) throws LaCrocanteException {
+    public String show(@PathVariable("id") String id, ModelMap model) {
         model.addAttribute("admin", adminApplication.findById(id));
         /* model.addAttribute("title", "Cadastro de Administrador");
         model.addAttribute("content", "panelAdmin/edit"); */
