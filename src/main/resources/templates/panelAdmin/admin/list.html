@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Administrador</title>
+    <link rel="stylesheet" href="/webjars/AdminLTE/3.0.2/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/webjars/AdminLTE/3.0.2/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/webjars/AdminLTE/3.0.2/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body>
+    <div th:replace="panelAdmin/fragments/navbar :: navbar">
+    </div>
+    <div class="card-body table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th style="width: 10px"></th>
+                    <th>Nome completo</th>
+                    <th>Usuário</th>
+                    <th style="width: 40px">Nível</th>
+                    <th style="width: 150px;">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="admin : ${administradores}">
+                    <td>
+                        <span th:if="${admin.active}" data-toggle="tooltip" data-placement="top" title="Acesso Liberado" class="badge bg-success">Ativo</span>
+                        <span th:if="${not admin.active}" data-toggle="tooltip" data-placement="top" title="Acesso Bloqueado" class="badge bg-danger">Inativo</span>
+                    </td>
+                    <td><span th:text="${admin.fullName}"></span></td>
+                    <td><span th:text="${admin.userName}"></span></td>
+                    <td><span class="badge bg-warning"><span th:if="${admin.role}" th:text="${admin.role}"></span></span>
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a th:if="${admin.active}" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Bloquear Usuário" role="button" th:href="@{/admin/{id}/block-unblock (id=${admin.id}) }">
+                                <i class="fas fa-ban"></i></a>
+                            <a th:if="!${admin.active}" class="btn btn-success btn-sm" role="button" data-toggle="tooltip" data-placement="top" title="Ativar Usuário" alt="Ativar Usuário" th:href="@{/admin/{id}/block-unblock (id=${admin.id}) }">
+                                <i class="fas fa-thumbs-up"></i></a>
+                            <a class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar Usuário" role="button" th:href="@{/admin/{id} (id=${admin.id}) }">
+                                <i class="fas fa-edit"></i> Editar</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- jQuery -->
+    <script src="/webjars/AdminLTE/3.0.2/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/webjars/AdminLTE/3.0.2/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/webjars/AdminLTE/3.0.2/dist/js/adminlte.min.js"></script>
+</body>
+
+</html>

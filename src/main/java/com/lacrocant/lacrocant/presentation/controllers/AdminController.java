@@ -26,7 +26,7 @@ public class AdminController {
 
     @GetMapping("create")
     public String createAdmin() {
-        return "/panelAdmin/admin/create";
+        return "panelAdmin/admin/create";
     }
 
     @PostMapping("/save")
@@ -45,21 +45,20 @@ public class AdminController {
         }
     }
 
-    @GetMapping("/dashboard") //lista todos os administradores
+    @GetMapping("/") //lista todos os administradores
     public String list(ModelMap model) {
-        model.addAttribute("title", "Administradores");
-        model.addAttribute("content", "panelAdmin/index");
+        /* model.addAttribute("title", "Administradores");
+        model.addAttribute("content", "panelAdmin/index"); */
         model.addAttribute("administradores", adminApplication.list());
-        System.out.println("Chegou aqui!");
-        return "redirect:/panelAdmin";
+        return "panelAdmin/admin/list";
     }
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") String id, ModelMap model) throws LaCrocanteException {
         model.addAttribute("admin", adminApplication.findById(id));
-        model.addAttribute("title", "Cadastro de Administrador");
-        model.addAttribute("content", "panelAdmin/edit");
-        return "panelAdmin/fragments/edit";
+        /* model.addAttribute("title", "Cadastro de Administrador");
+        model.addAttribute("content", "panelAdmin/edit"); */
+        return "panelAdmin/admin/edit";
     }
 
     @PostMapping("/update")
@@ -71,7 +70,7 @@ public class AdminController {
         } catch (LaCrocanteException e) {
             att.addFlashAttribute("f_messages", e.getMessages());
             att.addFlashAttribute("admin", admin);
-            att.addFlashAttribute("content", "panelAdmin/edit");
+           /*  att.addFlashAttribute("content", "panelAdmin/edit"); */
             return "redirect:/panelAdmin/" + admin.getId();
         }
         return "redirect:/panelAdmin/";
