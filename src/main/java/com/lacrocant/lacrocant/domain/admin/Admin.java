@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lacrocant.lacrocant.domain.AbstractEntity;
@@ -18,7 +19,7 @@ import lombok.NonNull;
 @NoArgsConstructor
 public class Admin extends AbstractEntity {
 
-    @NonNull
+    @NotBlank(message = "Campo Obrigatório")
     private String fullName;
 
     @Column(unique = true)
