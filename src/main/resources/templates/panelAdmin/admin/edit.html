@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"> 
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edição de Administrador</title>
-    
+
     <link rel="stylesheet" href="/webjars/AdminLTE/3.0.2/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -21,7 +21,7 @@
 <body>
     <div th:replace="panelAdmin/fragments/navbar :: navbar"></div>
     <h1 class="h1 text-center mt-5 font-weight-normal">Edição de Administrador</h1>
-    <form action="#" method="">
+    <form th:action="${/admin/update}" th:object="${admin}" method="POST">
         <div class="form-row mt-4" th:fragment="adminData">
             <div class="col-6">
                 <label for="userName">Nome de usuário:</label>
@@ -45,7 +45,7 @@
                 <button type="submit" class="btn btn-danger form-control btn-lg">Cancelar</button>
             </div>
             <div class="col-6">
-                <button type="submit" class="btn btn-success form-control btn-lg">Cadastrar</button>
+                <button type="submit" class="btn btn-success form-control btn-lg">Atualizar</button>
             </div>
         </div>
     </form>

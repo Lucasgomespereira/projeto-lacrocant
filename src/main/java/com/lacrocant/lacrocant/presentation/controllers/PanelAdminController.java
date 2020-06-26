@@ -15,9 +15,4 @@ public class PanelAdminController {
         // model.addAttribute("content", "panelAdmin/index");
         return "panelAdmin/index";
     }
-    @GetMapping("/create")
-    public String create(){
-        return "panelAdmin/create";
-    }
-
 }
