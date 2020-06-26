@@ -27,6 +27,12 @@ public class AdminApplicationImpl implements AdminApplication {
 
     @Override
     public Admin update(final Admin admin) {
+        final Admin adminStored = findById(admin.getId());
+        admin.setUserName(adminStored.getUserName());
+        admin.setPassword(adminStored.getPassword());
+        admin.setFullName(adminStored.getFullName());
+        admin.setEmail(adminStored.getEmail());
+        admin.setActive(adminStored.getActive());
         return adminRep.save(admin);
     }
 
