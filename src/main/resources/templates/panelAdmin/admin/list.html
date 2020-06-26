@@ -38,13 +38,14 @@
                     </td>
                     <td><span th:text="${admin.fullName}"></span></td>
                     <td><span th:text="${admin.userName}"></span></td>
-                    <td><span class="badge bg-warning"><span th:if="${admin.role}" th:text="${admin.role}"></span></span>
+                    <td><span class="badge bg-warning"><span th:if="${admin.role}"
+                                th:text="${admin.role}"></span></span>
                     </td>
                     <td>
                         <div class="btn-group">
-                            <a th:if="${admin.active}" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Bloquear Usuário" role="button" th:href="@{/admin/{id}/block-unblock (id=${admin.id}) }">
+                            <a th:if="${admin.active}" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Bloquear Administrador" role="button" th:href="@{/admin/{id}/block-unblock (id=${admin.id}) }">
                                 <i class="fas fa-ban"></i></a>
-                            <a th:if="!${admin.active}" class="btn btn-success btn-sm" role="button" data-toggle="tooltip" data-placement="top" title="Ativar Usuário" alt="Ativar Usuário" th:href="@{/admin/{id}/block-unblock (id=${admin.id}) }">
+                            <a th:if="!${admin.active}" class="btn btn-success btn-sm" role="button" data-toggle="tooltip" data-placement="top" title="Ativar Administrador" alt="Ativar Administrador" th:href="@{/admin/{id}/block-unblock (id=${admin.id}) }">
                                 <i class="fas fa-thumbs-up"></i></a>
                             <a class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Editar Administrador" role="button" th:href="@{/admin/{id} (id=${admin.id}) }">
                                 <i class="fas fa-edit"></i> Editar</a>
