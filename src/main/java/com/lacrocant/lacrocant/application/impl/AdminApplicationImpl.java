@@ -38,6 +38,7 @@ public class AdminApplicationImpl implements AdminApplication {
     
        /*  admin.setActive(admin.getActive()); */
         validate(admin);
+        admin.setPassword(new BCryptPasswordEncoder().encode(admin.getPassword()));
         return adminRep.save(admin);
     }
 
