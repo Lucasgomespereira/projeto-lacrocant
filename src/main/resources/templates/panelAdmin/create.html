@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Area do Administrador</title>
-
+    <title>Cadastro de Administrador</title>
     <link rel="stylesheet" href="/webjars/AdminLTE/3.0.2/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -17,13 +15,12 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
 </head>
-
 <body>
-
     <div th:replace="panelAdmin/fragments/navbar.html :: navbar"></div>
-
-    
+    <form action="#" method="POST" class="w-50 m-auto">
+        <h1 class="h1 text-center mt-5 font-weight-normal">Cadastro de Administrador</h1>
+        <div th:replace="panelAdmin/fragments/adminData.html :: adminData"></div>
+    </form>
     <div th:replace="/templates/panelAdmin/fragments/jsimport.html :: jsimport"></div>
 </body>
-
 </html>

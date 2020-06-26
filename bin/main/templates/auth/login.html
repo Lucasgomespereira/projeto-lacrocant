@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/admin/css/login.css">
+    <!-- <link rel="stylesheet" href="/admin/css/login.css"> -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/webjars/AdminLTE/3.0.2/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
@@ -20,18 +20,21 @@
 
 <body>
     <form th:action="@{/auth/authentication}" method="POST" class="form-signin w-50 text-center m-auto mt-5">
-        <img src="/img/logotipoamarela.png" id="imgLogoLogin" class="img-fluid" alt="Logo da Lacrocant amarela">
+        <img src="/img/logotipoamarela.png" id="imgLogoLogin" class="img-fluid" width="70%"
+            alt="Logo da Lacrocant amarela">
         <h1 class="h3 font-weight-normal mt-4 text-muted">Administrador</h1>
-        <input type="text" name="userName" class="form-control" placeholder="Nome de usuário" required>
-        <input type="password" name="password" class="form-control mt-1" placeholder="Senha" required>
-        <button type="submit" name="login" class="btn btn-primary form-control mt-3">Entrar</button>
+        <input type="text" name="userName" class="form-control w-50 m-auto" placeholder="Nome de usuário" required>
+        <input type="password" name="password" class="form-control m-auto w-50" placeholder="Senha" required>
+        <button type="submit" name="login" class="btn btn-primary form-control w-50 mt-2 btnLogin">Entrar</button>
     </form>
+    <!-- <div th:replace="/templates/panelAdmin/fragments/jsimport :: jsimport"></div> -->
+    <!-- jQuery -->
+    <script src="/webjars/AdminLTE/3.0.2/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/webjars/AdminLTE/3.0.2/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/webjars/AdminLTE/3.0.2/dist/js/adminlte.min.js"></script>
+
 </body>
-<!-- jQuery -->
-<script src="/webjars/AdminLTE/3.0.2/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="/webjars/AdminLTE/3.0.2/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/webjars/AdminLTE/3.0.2/dist/js/adminlte.min.js"></script>
 
 </html>
