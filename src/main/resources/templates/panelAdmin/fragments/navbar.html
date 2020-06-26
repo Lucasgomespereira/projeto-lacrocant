@@ -6,7 +6,7 @@
         <button class="navbar-toggler  d-md-none collapsed" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Mudar menu">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <input class="form-control form-control-dark w-50" type="text" placeholder="Digite o que deseja buscar" aria-label="Search">
+        <input class="form-control form-control-dark w-50" type="text" placeholder="Pesquisar..." aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
                 <a href="#" class="nav-link bg-danger text-white px-5 font-weight-bold">Sair</a>
@@ -22,12 +22,12 @@
                     </h6>
                     <ul class="nav flex-column mt-2">
                         <li class="nav-item">
-                            <a href="/panelAdmin/admin/create/" class="nav-link">
-                                <span>Cadastrados</span>
+                            <a th:href="@{admin/dashboard}" class="nav-link">
+                                <span>Dashboard</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/panelAdmin/create" class="nav-link text-decoration-none">
+                            <a th:href="@{admin/create}" class="nav-link text-decoration-none">
                                 <span>Novo</span>
                             </a>
                         </li>

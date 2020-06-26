@@ -26,7 +26,7 @@ public class AdminController {
 
     @GetMapping("create")
     public String createAdmin() {
-        return "/panelAdmin/create";
+        return "/panelAdmin/admin/create";
     }
 
     @PostMapping("/save")
@@ -45,12 +45,13 @@ public class AdminController {
         }
     }
 
-    @GetMapping("/") //lista todos os administradores
+    @GetMapping("/dashboard") //lista todos os administradores
     public String list(ModelMap model) {
         model.addAttribute("title", "Administradores");
         model.addAttribute("content", "panelAdmin/index");
         model.addAttribute("administradores", adminApplication.list());
-        return "/admin/list";
+        System.out.println("Chegou aqui!");
+        return "redirect:/panelAdmin";
     }
 
     @GetMapping("/{id}")
