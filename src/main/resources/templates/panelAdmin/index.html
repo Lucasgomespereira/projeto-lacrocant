@@ -20,10 +20,14 @@
 
 <body>
 
-    <div th:replace="panelAdmin/fragments/navbar.html :: navbar"></div>
+    <div th:replace="panelAdmin/fragments/navbar :: navbar"></div>
 
-    
-    <div th:replace="/templates/panelAdmin/fragments/jsimport.html :: jsimport"></div>
-</body>
+    <!-- jQuery -->
+    <script src="/webjars/AdminLTE/3.0.2/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/webjars/AdminLTE/3.0.2/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/webjars/AdminLTE/3.0.2/dist/js/adminlte.min.js"></script>
+</body> 
 
 </html>

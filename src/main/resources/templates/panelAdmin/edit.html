@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <div th:replace="panelAdmin/fragments/navbar.html :: navbar"></div>
+    <div th:replace="panelAdmin/fragments/navbar :: navbar"></div>
     <h1 class="h1 text-center mt-5 font-weight-normal">Edição de Administrador</h1>
     <form action="#" method="">
         <div class="form-row mt-4" th:fragment="adminData">
@@ -50,7 +50,12 @@
         </div>
     </form>
 
-    <div th:replace="/templates/panelAdmin/fragments/jsimport.html :: jsimport"></div>
+    <!-- jQuery -->
+    <script src="/webjars/AdminLTE/3.0.2/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/webjars/AdminLTE/3.0.2/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/webjars/AdminLTE/3.0.2/dist/js/adminlte.min.js"></script>
 </body>
 
 </html>

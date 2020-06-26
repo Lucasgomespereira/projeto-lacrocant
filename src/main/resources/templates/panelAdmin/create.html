@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,14 +14,53 @@
     <link rel="stylesheet" href="/webjars/AdminLTE/3.0.2/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
 </head>
+
 <body>
-    <div th:replace="panelAdmin/fragments/navbar.html :: navbar"></div>
-    <form action="#" method="POST" class="w-50 m-auto">
-        <h1 class="h1 text-center mt-5 font-weight-normal">Cadastro de Administrador</h1>
-        <div th:replace="panelAdmin/fragments/adminData.html :: adminData"></div>
-    </form>
-    <div th:replace="/templates/panelAdmin/fragments/jsimport.html :: jsimport"></div>
+    <div th:replace="panelAdmin/fragments/navbar :: navbar">
+    </div>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+        <div
+            class="d-flex justify-content-beetween flex-wrap flex-md-nowrap align-items-center border-bottom">
+            <h1 class="h2 text-center font-weight-normal">Cadastro de Administrador</h1>
+        </div>
+
+        <form action="#" method="POST" id="formCreate">
+            <div class="form-row">
+                <div class="col-6">
+                    <label for="userName">Nome de usuário:</label>
+                    <input type="text" class="form-control" name="userName">
+                </div>
+                <div class="col-6">
+                    <label for="password">Senha:</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+            </div>
+            <div class="form-group mt-2">
+                <label for="fullName">Nome completo:</label>
+                <input type="text" class="form-control" name="fullName">
+            </div>
+            <div class="form-group mt-2">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" name="email">
+            </div>
+            <div class="form-row">
+                <div class="col-6">
+                    <button type="submit" class="btn btn-danger form-control btn-lg py-2">Cancelar</button>
+                </div>
+                <div class="col-6">
+                    <button type="submit" class="btn btn-success form-control btn-lg py-2">Cadastrar</button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- jQuery -->
+    <script src="/webjars/AdminLTE/3.0.2/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/webjars/AdminLTE/3.0.2/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/webjars/AdminLTE/3.0.2/dist/js/adminlte.min.js"></script>
 </body>
+
 </html>

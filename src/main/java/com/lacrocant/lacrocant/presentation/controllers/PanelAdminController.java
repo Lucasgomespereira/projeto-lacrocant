@@ -10,10 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequestMapping("panelAdmin")
 public class PanelAdminController {
     @GetMapping({ "", "/" })
-    public String index(ModelMap model, Authentication authentication) {
-        model.addAttribute("title", "LaCrocant");
-        model.addAttribute("content", "panelAdmin/index");
-        return "panelAdmin/fragments/navbar";
+    public String index() {
+        // model.addAttribute("title", "LaCrocant");
+        // model.addAttribute("content", "panelAdmin/index");
+        return "panelAdmin/index";
+    }
+    @GetMapping("/create")
+    public String create(){
+        return "panelAdmin/create";
     }
 
 }
