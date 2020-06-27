@@ -35,7 +35,7 @@ public class AdminController {
             adminApplication.save(admin);
             att.addFlashAttribute("s_message",
                     "Administrador(a) " + admin.getUserName() + " cadastrado(a) com sucesso!");
-            return "redirect:/panelAdmin/"; // redirecionar para a dashboard
+            return "redirect:/admin/"; // redirecionar para a dashboard
         } catch (LaCrocanteException e) {
             admin.setId(null);
             att.addFlashAttribute("f_messages", e.getMessages());
