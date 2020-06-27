@@ -19,11 +19,17 @@
 <body>
     <div th:replace="panelAdmin/fragments/navbar :: navbar">
     </div>
-    <div class="card-body table-responsive">
-        <table class="table table-hover">
-            <thead>
+    <main class="mx-auto my-3 col-8">
+        <div class="card-body table-responsive">
+            <h1 class="font-weight-bold h3 text-center my-2">ADMINISTRADORES CADASTRADOS</h1>
+            <a th:href="@{/admin/create}">
+                <button type="submit" class="btn py-2 mt-2 text-light font-weight-bold" id="btnCadastar">CADASTRAR</button>
+            </a>
+    <div class="mt-2 table-responsive">
+        <table class="table table-bordered">
+            <thead class="table-dark">
                 <tr>
-                    <th style="width: 10px"></th>
+                    <th style="width: 10px">Status</th>
                     <th>Nome completo</th>
                     <th>Usuário</th>
                     <th style="width: 40px">Nível</th>
@@ -33,22 +39,20 @@
             <tbody>
                 <tr th:each="admin : ${administradores}">
                     <td>
-                        <span th:if="${admin.active}" data-toggle="tooltip" data-placement="top" title="Acesso Liberado" class="badge bg-success">Ativo</span>
-                        <span th:if="${not admin.active}" data-toggle="tooltip" data-placement="top" title="Acesso Bloqueado" class="badge bg-danger">Inativo</span>
+                        <span th:if="${admin.active}" data-toggle="tooltip" data-placement="top" title="Acesso Liberado" class="btn-sm bg-info font-weight-bold">Ativo</span>
+                        <span th:if="${not admin.active}" data-toggle="tooltip" data-placement="top" title="Acesso Bloqueado" class="badge bg-danger">INATIVO</span>
                     </td>
                     <td><span th:text="${admin.fullName}"></span></td>
                     <td><span th:text="${admin.userName}"></span></td>
-                    <td><span class="badge bg-warning"><span th:if="${admin.role}"
+                    <td><span class="btn-sm bg-primary font-weight-bold"><span th:if="${admin.role}"
                                 th:text="${admin.role}"></span></span>
                     </td>
                     <td>
                         <div class="btn-group">
-                            <a th:if="${admin.active}" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Bloquear Administrador" role="button" th:href="@{/admin/{id}/block-unblock (id=${admin.id}) }">
-                                <i class="fas fa-ban"></i></a>
+                            <a th:if="${admin.active}" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Bloquear Administrador" role="button" th:href="@{/admin/{id}/block-unblock (id=${admin.id}) }">Bloquear</a>
                             <a th:if="!${admin.active}" class="btn btn-success btn-sm" role="button" data-toggle="tooltip" data-placement="top" title="Ativar Administrador" alt="Ativar Administrador" th:href="@{/admin/{id}/block-unblock (id=${admin.id}) }">
-                                <i class="fas fa-thumbs-up"></i></a>
-                            <a class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Editar Administrador" role="button" th:href="@{/admin/{id} (id=${admin.id}) }">
-                                <i class="fas fa-edit"></i> Editar</a>
+                               Ativar</a>
+                            <a class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Editar Administrador" role="button" th:href="@{/admin/{id} (id=${admin.id}) }">Editar</a>
                         </div>
                     </td>
                 </tr>

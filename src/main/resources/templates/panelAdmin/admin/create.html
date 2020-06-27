@@ -19,12 +19,12 @@
 <body>
     <div th:replace="panelAdmin/fragments/navbar :: navbar">
     </div>
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-        <div class="d-flex justify-content-beetween flex-wrap flex-md-nowrap align-items-center border-bottom">
-            <h1 class="h2 text-center font-weight-normal">Cadastro de Administrador</h1>
+    <main class="mx-auto my-3 col-8">
+        <div class="d-flex justify-content-beetween flex-wrap flex-md-nowrap align-items-center mt-5">
+            <h1 class="h2 font-weight-bold m-auto ">Cadastro de Administrador</h1>
         </div>
 
-        <form th:action="@{/admin/save}" th:object="${admin}" method="POST" id="formCreate">
+        <form th:action="@{/admin/save}" th:object="${admin}" method="POST" id="formCreate" class="mt-5">
             <div class="form-row">
                 <div class="col-6">
                     <label for="userName">Nome de usuário:</label>
