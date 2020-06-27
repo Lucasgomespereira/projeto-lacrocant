@@ -75,4 +75,15 @@ public class AdminApplicationImpl implements AdminApplication {
             throw new LaCrocanteException(400, messages);
         }
     }
+
+    @Override
+    public Admin blockOrUnblock(String id, String loggedAdmin) throws LaCrocanteException {
+        final Admin admin = findById(id);
+        if (loggedAdmin == admin.getId()) {
+            throw new LaCrocanteException(403, "Você não pode bloquear a si mesmo!");
+        }
+        admin.setActive(!admin.getActive());
+        return adminRep.save(admin);
+    }
+
 }

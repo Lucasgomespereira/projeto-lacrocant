@@ -6,8 +6,8 @@ import com.lacrocant.lacrocant.application.AdminApplication;
 import com.lacrocant.lacrocant.domain.admin.Admin;
 import com.lacrocant.lacrocant.util.LaCrocanteException;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -73,4 +73,18 @@ public class AdminController {
         }
         return "redirect:/admin/";
     }
+    @GetMapping("/{id}/block-unblock")
+	public String blockOrUnblock(@PathVariable("id") String id, RedirectAttributes att, ModelMap model,
+			Authentication authentication) throws LaCrocanteException {
+		try {
+			final Admin loggedAdmin = adminApplication.findByUserName(authentication.getName());
+			final Admin admin = adminApplication.blockOrUnblock(id, loggedAdmin.getId());
+			String status = admin.getActive() ? "ativado" : "bloqueado";
+			att.addFlashAttribute("s_message", "Administrador " + admin.getUserName() + " " + status + " com sucesso!");
+		} catch (LaCrocanteException e) {
+			att.addFlashAttribute("f_messages", e.getMessages());
+			return "redirect:/admin/" + id;
+		}
+		return "redirect:/admin/";
+	}
 }
