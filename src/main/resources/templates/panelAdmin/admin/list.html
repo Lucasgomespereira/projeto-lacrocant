@@ -38,7 +38,7 @@
                         <tr th:each="admin : ${administradores}">
                             <td>
                                 <span th:if="${admin.active}" data-toggle="tooltip" data-placement="top" title="Acesso Liberado" class="btn-sm bg-info font-weight-bold">Ativo</span>
-                                <span th:if="${not admin.active}" data-toggle="tooltip" data-placement="top" title="Acesso Bloqueado" class="btn-sm bg-danger font-weight-bold">Inativo</span>
+                                <span th:if="${not admin.active}" data-toggle="tooltip" data-placement="top" title="Acesso Bloqueado" class="btn-sm bg-danger font-weight-bold">Bloqueado</span>
                             </td>
                             <td><span th:text="${admin.fullName}"></span></td>
                             <td><span th:text="${admin.userName}"></span></td>
