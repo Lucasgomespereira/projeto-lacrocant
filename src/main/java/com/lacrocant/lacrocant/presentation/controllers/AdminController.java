@@ -87,9 +87,9 @@ public class AdminController {
 		}
 		return "redirect:/admin/";
     }
-    @GetMapping("/user")
+   /*  @GetMapping("/profile-admin")
 	public String userLog(Admin admin, ModelMap model, Authentication authentication) {
 		model.addAttribute("admin", adminApplication.findByUserName(authentication.getName()));
 		return "redirect:/admin/";
-	}
+	} */
 }
