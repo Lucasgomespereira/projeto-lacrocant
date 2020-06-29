@@ -27,6 +27,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     /* spring-boot-start */
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    //hymeleaf-extras-springsecurity5
+    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
     //hibernate-validator
     compile group: 'org.hibernate.validator', name: 'hibernate-validator', version: '6.1.5.Final'
     /* lombok */
@@ -39,6 +42,11 @@ dependencies {
     /* Webjars */
     compile group: 'org.webjars', name: 'webjars-locator-core'
     compile 'org.webjars:AdminLTE:3.0.2'
+
+    //Dependencias para envio de email.
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '2.2.7.RELEASE'
+	compile group: 'org.springframework', name: 'spring-context', version: '5.2.6.RELEASE'
+	compile group: 'org.springframework', name: 'spring-context-support', version: '5.2.6.RELEASE'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

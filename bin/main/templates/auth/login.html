@@ -35,7 +35,7 @@
                 <img src="/img/logotipoamarela.png" id="imgLogoLogin" class="img-fluid" width="100%"
                     alt="Logo da Lacrocant amarela">
                 <h1 class="h3 font-weight-normal  text-center text-muted">Administrador</h1>
-                <form th:action="@{/auth/authentication}" method="POST">
+                <form th:action="@{/auth/authentication}" th:object="${admin}" method="POST">
                     <div class="alert alert-danger font-weight-bold" role="alert" th:if="${(param.error != null) and (param.error[0] == 'true')}">
                         Acesso Negado!
                     </div>
@@ -59,10 +59,6 @@
     <script src="/webjars/AdminLTE/3.0.2/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/webjars/AdminLTE/3.0.2/dist/js/adminlte.min.js"></script>
-    <script>
-        $('.dropdown-toggle').dropdown();
-    </script>
-
 </body>
 
 </html>

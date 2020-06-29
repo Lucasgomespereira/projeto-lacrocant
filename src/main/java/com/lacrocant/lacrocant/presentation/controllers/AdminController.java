@@ -86,5 +86,10 @@ public class AdminController {
 			return "redirect:/admin/" + id;
 		}
 		return "redirect:/admin/";
+    }
+    @GetMapping("/user")
+	public String userLog(Admin admin, ModelMap model, Authentication authentication) {
+		model.addAttribute("admin", adminApplication.findByUserName(authentication.getName()));
+		return "redirect:/admin/";
 	}
 }
