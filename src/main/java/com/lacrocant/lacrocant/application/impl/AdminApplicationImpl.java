@@ -35,10 +35,7 @@ public class AdminApplicationImpl implements AdminApplication {
 
     @Override
     public Admin update(final Admin admin) throws LaCrocanteException {
-    
-       /*  admin.setActive(admin.getActive()); */
         validate(admin);
-        /* admin.setPassword(new BCryptPasswordEncoder().encode(admin.getPassword())); */
         return adminRep.save(admin);
     }
 
@@ -52,6 +49,18 @@ public class AdminApplicationImpl implements AdminApplication {
         return adminRep.findByUserName(userName);
     }
 
+    @Override
+    public Admin blockOrUnblock(String id, String loggedAdmin) throws LaCrocanteException {
+        final Admin admin = findById(id);
+        if (loggedAdmin == admin.getId()) {
+            throw new LaCrocanteException(403, "Você não pode bloquear a si mesmo!");
+        }
+        admin.setActive(!admin.getActive());
+        return adminRep.save(admin);
+    }
+
+
+    /*  Metodo para validação de dados antes da persistencia no banco de dados */
     private void validate(final Admin admin) throws LaCrocanteException {
         final List<String> messages = new ArrayList<>();
         if (admin.getFullName() == null || admin.getFullName().isEmpty()) {
@@ -76,14 +85,5 @@ public class AdminApplicationImpl implements AdminApplication {
         }
     }
 
-    @Override
-    public Admin blockOrUnblock(String id, String loggedAdmin) throws LaCrocanteException {
-        final Admin admin = findById(id);
-        if (loggedAdmin == admin.getId()) {
-            throw new LaCrocanteException(403, "Você não pode bloquear a si mesmo!");
-        }
-        admin.setActive(!admin.getActive());
-        return adminRep.save(admin);
-    }
 
 }

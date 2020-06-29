@@ -32,8 +32,7 @@
     <div class="container container-fluid">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-6 col-md-3" id="areaDeLogin">
-                <img src="/img/logotipoamarela.png" id="imgLogoLogin" class="img-fluid" width="100%"
-                    alt="Logo da Lacrocant amarela">
+                <img src="/img/logotipoamarela.png" id="imgLogoLogin" class="img-fluid" width="100%" alt="Logo da Lacrocant amarela">
                 <h1 class="h3 font-weight-normal  text-center text-muted">Administrador</h1>
                 <form th:action="@{/auth/authentication}" th:object="${admin}" method="POST">
                     <div class="alert alert-danger font-weight-bold" role="alert" th:if="${(param.error != null) and (param.error[0] == 'true')}">
@@ -47,8 +46,8 @@
                         <label for="senha">Senha</label>
                         <input type="password" name="password" class="form-control" placeholder="Senha" required>
                     </div>
-                    <!-- <a href="#" class="dropdown-item">Esqueceu a senha?</a> -->
                     <button type="submit" name="login" class="btn btn-primary btnLogin">Entrar</button>
+                    <a style="float: right;" href="#" class="btn btn-primary btnLogin">Esqueceu a senha?</a>
                 </form>
             </div>
         </div>
