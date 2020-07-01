@@ -1,11 +1,14 @@
 package com.lacrocant.lacrocant.application.impl;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.lacrocant.lacrocant.application.AdminApplication;
 import com.lacrocant.lacrocant.domain.admin.Admin;
+import com.lacrocant.lacrocant.infra.mailConfig.MailService;
 import com.lacrocant.lacrocant.infra.repositories.AdminRepository;
+import com.lacrocant.lacrocant.infra.security.GeneratePassword;
 import com.lacrocant.lacrocant.util.LaCrocanteException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,9 @@ public class AdminApplicationImpl implements AdminApplication {
 
     @Autowired
     private AdminRepository adminRep;
+
+    @Autowired
+    private MailService mailService;
 
     @Override
     public Admin save(final Admin admin) throws LaCrocanteException {
@@ -57,6 +63,26 @@ public class AdminApplicationImpl implements AdminApplication {
         }
         admin.setActive(!admin.getActive());
         return adminRep.save(admin);
+    }
+
+    // Método para recuoeração de acesso
+    @Override
+    public Admin recoverAccess(String userName) throws LaCrocanteException, IOException {
+        if (userName == null) {
+            throw new LaCrocanteException(400, "Informe o nome de usuário!");
+        }
+        Admin admin = adminRep.findByUserName(userName);
+        if (admin == null) {
+            throw new LaCrocanteException(404, "Usuário não encontrado!");
+        } else {
+            final String name = admin.getUserName();
+            final String email = admin.getEmail();
+            final String newPassword = GeneratePassword.createNewPassword();
+            admin.setPassword(new BCryptPasswordEncoder().encode(newPassword));
+            mailService.sendNewPassword(email, name, newPassword);
+            return adminRep.save(admin);
+        }
+
     }
 
 

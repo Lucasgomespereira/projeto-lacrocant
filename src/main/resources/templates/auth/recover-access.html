@@ -34,20 +34,13 @@
             <div class="col-12 col-sm-6 col-md-3" id="areaDeLogin">
                 <img src="/img/logotipoamarela.png" id="imgLogoLogin" class="img-fluid" width="100%" alt="Logo da Lacrocant amarela">
                 <h1 class="h3 font-weight-normal  text-center text-muted">Administrador</h1>
-                <form th:action="@{/auth/authentication}" th:object="${admin}" method="POST">
-                    <div class="alert alert-danger font-weight-bold" role="alert" th:if="${(param.error != null) and (param.error[0] == 'true')}">
-                        Acesso Negado!
-                    </div>
+                <form th:action="@{/auth/recover-access}" method="POST">
                     <div class="form-group">
-                        <label for="userName">Nome de Usuário</label>
+                        <label for="userName">Informe o nome de usuário</label>
                         <input type="text" name="userName" class="form-control" placeholder="Nome de usuário" required>
                     </div>
-                    <div class="form-group">
-                        <label for="senha">Senha</label>
-                        <input type="password" name="password" class="form-control" placeholder="Senha" required>
-                    </div>
-                    <button type="submit" name="login" class="btn btn-primary btnLogin">Entrar</button>
-                    <a style="float: right;" th:href="@{/auth/recover}" class="btn btn-primary btnLogin">Esqueceu a senha?</a>
+                    <a th:href="@{/auth/login}" class="btn btn-primary btnLogin">Voltar</a>
+                    <button style="float: right;" type="submit" name="login" class="btn btn-primary btnLogin">Recuperar</button>
                 </form>
             </div>
         </div>

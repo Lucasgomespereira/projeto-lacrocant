@@ -32,6 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.GET, "/").permitAll()
 				.antMatchers(HttpMethod.GET, LOGIN_PAGE).permitAll()
 				.antMatchers(HttpMethod.GET, "/*").permitAll()
+				.antMatchers(HttpMethod.GET, "/auth/recover").permitAll()
 				.anyRequest().authenticated()
 				.and().formLogin().loginPage(LOGIN_PAGE).permitAll()
 				.defaultSuccessUrl("/panelAdmin")
