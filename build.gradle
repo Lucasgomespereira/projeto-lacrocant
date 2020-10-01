@@ -1,7 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version '2.3.1.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.3.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
 }
 
 group = 'com.lacrocant'
@@ -9,30 +9,51 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'org.postgresql:postgresql'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
-	testImplementation 'org.springframework.security:spring-security-test'
+    /* data-jpa */
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    /* spring-security */
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    /* thymeleaf*/    
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    /* spring-boot-start */
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    //hymeleaf-extras-springsecurity5
+    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
+    //hibernate-validator
+    compile group: 'org.hibernate.validator', name: 'hibernate-validator', version: '6.1.5.Final'
+    /* lombok */
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    /* devtools */
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    /* postgresql */
+    runtimeOnly 'org.postgresql:postgresql'
+    /* Webjars */
+    compile group: 'org.webjars', name: 'webjars-locator-core'
+    compile 'org.webjars:AdminLTE:3.0.2'
+
+    //Dependencias para envio de email.
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '2.2.7.RELEASE'
+	compile group: 'org.springframework', name: 'spring-context', version: '5.2.6.RELEASE'
+	compile group: 'org.springframework', name: 'spring-context-support', version: '5.2.6.RELEASE'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testImplementation 'org.springframework.security:spring-security-test'
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }

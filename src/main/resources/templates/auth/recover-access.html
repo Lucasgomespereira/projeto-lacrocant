@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- <link rel="stylesheet" href="/admin/css/login.css"> -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/webjars/AdminLTE/3.0.2/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/webjars/AdminLTE/3.0.2/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/webjars/AdminLTE/3.0.2/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+        #areaDeLogin {
+            background-color: #ffffff;
+            box-shadow: 0px 0px 2px black;
+            padding: 20px;
+            position: absolute;
+            top: 30px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6 col-md-3" id="areaDeLogin">
+                <img src="/img/logotipoamarela.png" id="imgLogoLogin" class="img-fluid" width="100%" alt="Logo da Lacrocant amarela">
+                <h1 class="h3 font-weight-normal  text-center text-muted">Administrador</h1>
+                <form th:action="@{/auth/recover-access}" method="POST">
+                    <div class="form-group">
+                        <label for="userName">Informe o nome de usuário</label>
+                        <input type="text" name="userName" class="form-control" placeholder="Nome de usuário" required>
+                    </div>
+                    <a th:href="@{/auth/login}" class="btn btn-primary btnLogin">Voltar</a>
+                    <button style="float: right;" type="submit" name="login" class="btn btn-primary btnLogin">Recuperar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="/webjars/AdminLTE/3.0.2/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/webjars/AdminLTE/3.0.2/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/webjars/AdminLTE/3.0.2/dist/js/adminlte.min.js"></script>
+</body>
+
+</html>
